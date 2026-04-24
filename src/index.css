@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --accent: #ff9100;
+  --accent-dim: rgba(255, 145, 0, 0.15);
+  --accent-rgb: 255, 145, 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #020617;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100dvh;
+  margin: 0;
+}
+
+#root {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.accent-text { color: var(--accent); }
+.accent-bg { background-color: var(--accent); }
+.accent-border { border-color: var(--accent); }
+.accent-glow { box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3); }
+
+.scroll-area {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scroll-area::-webkit-scrollbar { display: none; }
+
+@keyframes topoFloat {
+  0% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-20px) translateX(10px); }
+  66% { transform: translateY(10px) translateX(-8px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes radarScan {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes radarPulse {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.4; transform: scale(1.1); }
+}
+
+@keyframes nodeAppear {
+  0% { opacity: 0; transform: scale(0); }
+  50% { transform: scale(1.3); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.node-appear {
+  animation: nodeAppear 0.6s ease-out forwards;
+}
