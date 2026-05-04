@@ -42,7 +42,13 @@ function TopoBackground() {
   )
 }
 
-export default function Welcome({ onGetStarted, onLogin }) {
+export default function Welcome({ onGetStarted, onLogin, onContinue, hasExistingSession }) {
+  const getStartedClass = hasExistingSession
+    ? 'w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97] border border-slate-700 text-white'
+    : 'w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97]'
+  const getStartedStyle = hasExistingSession
+    ? { backgroundColor: 'rgba(15,23,42,0.5)' }
+    : { backgroundColor: 'var(--accent)', color: '#000' }
   return (
     <div className="relative w-full h-full flex flex-col" style={{ backgroundColor: '#020617' }}>
       <TopoBackground />
@@ -81,9 +87,15 @@ export default function Welcome({ onGetStarted, onLogin }) {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="pb-12 space-y-3">
-          <button onClick={onGetStarted} className="w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97]" style={{backgroundColor: 'var(--accent)', color: '#000'}}>
+          {hasExistingSession && (
+            <button onClick={onContinue} className="w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97]" style={{backgroundColor: 'var(--accent)', color: '#000'}}>
+              Continue
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          )}
+          <button onClick={onGetStarted} className={getStartedClass} style={getStartedStyle}>
             Get started — it's free
-            <ArrowRight className="w-5 h-5" />
+            {!hasExistingSession && <ArrowRight className="w-5 h-5" />}
           </button>
           <button onClick={onLogin} className="w-full py-4 rounded-2xl font-semibold text-base text-white border border-slate-700 transition-all active:scale-[0.97]" style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}>
             I already have an account

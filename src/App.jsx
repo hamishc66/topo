@@ -22,17 +22,13 @@ function App() {
   const [customization, setCustomization] = useState(null)
   const [authMode, setAuthMode] = useState('signup')
 
+  // Load stored data into state so the Welcome screen can offer a "Continue" option,
+  // but ALWAYS start on the Welcome screen (concept-mode requirement).
   useEffect(() => {
     const storedUser = localStorage.getItem('topo_user')
     const storedCustomization = localStorage.getItem('topo_customization')
-    if (storedUser && storedCustomization) {
-      setUser(JSON.parse(storedUser))
-      setCustomization(JSON.parse(storedCustomization))
-      setScreen('app')
-    } else if (storedUser) {
-      setUser(JSON.parse(storedUser))
-      setScreen('customize')
-    }
+    if (storedUser) setUser(JSON.parse(storedUser))
+    if (storedCustomization) setCustomization(JSON.parse(storedCustomization))
   }, [])
 
   const handleAuth = (userData) => {
@@ -76,7 +72,12 @@ function App() {
       <AnimatePresence mode="wait">
         {screen === 'welcome' && (
           <motion.div key="welcome" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={pageTransition} className="absolute inset-0">
-            <Welcome onGetStarted={() => { setAuthMode('signup'); setScreen('auth') }} onLogin={() => { setAuthMode('login'); setScreen('auth') }} />
+            <Welcome
+              onGetStarted={() => { setAuthMode('signup'); setScreen('auth') }}
+              onLogin={() => { setAuthMode('login'); setScreen('auth') }}
+              hasExistingSession={!!(user && customization)}
+              onContinue={() => setScreen('app')}
+            />
           </motion.div>
         )}
         {screen === 'auth' && (
