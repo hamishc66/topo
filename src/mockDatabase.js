@@ -208,6 +208,123 @@ export const mockPosts = [
     hasImage: true,
     imageGradient: "from-cyan-950 via-slate-800 to-teal-900"
   },
+  {
+    id: 15,
+    author: "Niko Vance",
+    handle: "@niko.vance",
+    avatarColor: "#d946ef",
+    initials: "NV",
+    content: "Just finished a multi-pitch training day on the sea cliffs. 11 pitches, 6 hours, zero falls. The consistency is starting to show. Trust the process. 🧗‍♂️ #climbing #training",
+    time: "18h ago",
+    likes: 678,
+    comments: 91,
+    shares: 24,
+    tags: ["climbing", "training"],
+    hasImage: true,
+    imageGradient: "from-fuchsia-950 via-slate-800 to-slate-700"
+  },
+  {
+    id: 16,
+    author: "Tana Rios",
+    handle: "@tana.rios",
+    avatarColor: "#84cc16",
+    initials: "TR",
+    content: "Wild plant ID walk this morning — found 14 species of edible plants within 500m of the trailhead. Knowledge is the best survival gear. 🌿 Workshop this Sunday if you're in Wanaka!",
+    time: "22h ago",
+    likes: 423,
+    comments: 58,
+    shares: 112,
+    tags: ["survival", "foraging", "bushcraft"],
+    hasImage: false
+  },
+  {
+    id: 17,
+    author: "Clem Ashby",
+    handle: "@clem.ashby",
+    avatarColor: "#f97316",
+    initials: "CA",
+    content: "Gear test report: Ran the new trail shoes 120km over technical terrain. Verdict: the toe protection is excellent, but the heel stack is too soft for rocky descents. Full writeup on the blog.",
+    time: "1d ago",
+    likes: 312,
+    comments: 47,
+    shares: 89,
+    tags: ["gear", "review", "trailrunning"],
+    hasImage: true,
+    imageGradient: "from-orange-950 via-slate-800 to-slate-700"
+  },
+  {
+    id: 18,
+    author: "Lex Moreau",
+    handle: "@lex.moreau",
+    avatarColor: "#38bdf8",
+    initials: "LM",
+    content: "Night navigation course done ✅. Map, compass, no tech. Reading terrain by headlamp with a 20kg pack is a different beast. Highly recommend — you don't know navigation until the GPS is dead.",
+    time: "1d ago",
+    likes: 745,
+    comments: 102,
+    shares: 63,
+    tags: ["navigation", "skills", "training"],
+    hasImage: true,
+    imageGradient: "from-sky-950 via-slate-800 to-indigo-900"
+  },
+  {
+    id: 19,
+    author: "Yuki Tanaka",
+    handle: "@yuki.tanaka",
+    avatarColor: "#e879f9",
+    initials: "YT",
+    content: "First winter summit! Mount Difficulty, 1592m. Crampons on at 1200m. Everything above that was ice and adrenaline. I cried at the top and I am not even slightly embarrassed. 🏔️❄️ #firstsummit",
+    time: "2d ago",
+    likes: 3812,
+    comments: 421,
+    shares: 589,
+    tags: ["firstsummit", "winter", "mountains"],
+    hasImage: true,
+    imageGradient: "from-purple-950 via-blue-950 to-slate-800"
+  },
+  {
+    id: 20,
+    author: "Pax Delacroix",
+    handle: "@pax.delacroix",
+    avatarColor: "#fb923c",
+    initials: "PD",
+    content: "Reminder that the mountains don't care about your timeline. Turned back 200m from the summit today because conditions were deteriorating fast. The peak will still be there. Safety first, ego never. 🏔️",
+    time: "2d ago",
+    likes: 5601,
+    comments: 634,
+    shares: 1120,
+    tags: ["safety", "mindset", "alpine"],
+    hasImage: false
+  },
+  {
+    id: 21,
+    author: "Vera Strand",
+    handle: "@vera.strand",
+    avatarColor: "#4ade80",
+    initials: "VS",
+    content: "TOPO crew, who's doing the Kepler Challenge this year? Looking for training partners in the Fiordland area. Drop a 🙋 below! Already have 8 weeks of structured training done. #keplarchallenge #ultramarathon",
+    time: "3d ago",
+    likes: 287,
+    comments: 93,
+    shares: 41,
+    tags: ["keplarchallenge", "ultramarathon", "community"],
+    hasImage: false
+  },
+  {
+    id: 22,
+    author: "Orion Beck",
+    handle: "@orion.beck",
+    avatarColor: "#a3e635",
+    initials: "OB",
+    content: "Wilderness first aid refresher complete. Reviewed hypothermia management, altitude sickness, fracture immobilisation, and wound closure. Everyone in the backcountry should have at least WFA cert. Non-negotiable. 🩹",
+    time: "3d ago",
+    likes: 1089,
+    comments: 145,
+    shares: 298,
+    tags: ["firstaid", "safety", "backcountry"],
+    hasImage: false,
+    isAlert: false
+  },
 ];
 
 export const mockGearItems = [
@@ -282,6 +399,47 @@ export const mockWeather = [
     ],
     alerts: [],
     aiSummary: "Excellent stable window this week. High pressure holding. Perfect conditions for summit, visibility 50km+."
+  },
+  {
+    id: 4,
+    location: "Tongariro Alpine Crossing",
+    elevation: "1967m",
+    condition: "Volcanic Haze",
+    temp: 6,
+    feelsLike: 1,
+    wind: { speed: 35, direction: "SE", gusts: 55 },
+    humidity: 68,
+    forecast: [
+      { day: "Today", high: 8, low: 2, condition: "Hazy" },
+      { day: "Tue", high: 10, low: 3, condition: "Partly Cloudy" },
+      { day: "Wed", high: 12, low: 5, condition: "Clear" },
+      { day: "Thu", high: 11, low: 4, condition: "Clear" },
+      { day: "Fri", high: 7, low: 1, condition: "Rain" }
+    ],
+    alerts: ["Volcanic activity advisory — check GNS before departure"],
+    aiSummary: "SE winds expected to ease Tuesday. Clear summit window Wed–Thu is ideal for the crossing. A front arrives Friday — complete your traverse by Thursday evening."
+  },
+  {
+    id: 5,
+    location: "Mueller Hut, Aoraki/Mt Cook",
+    elevation: "1800m",
+    condition: "Snow Showers",
+    temp: -7,
+    feelsLike: -15,
+    wind: { speed: 62, direction: "SW", gusts: 95 },
+    humidity: 88,
+    forecast: [
+      { day: "Today", high: -5, low: -16, condition: "Heavy Snow" },
+      { day: "Tue", high: -8, low: -18, condition: "Blizzard" },
+      { day: "Wed", high: -4, low: -12, condition: "Snow Showers" },
+      { day: "Thu", high: 0, low: -9, condition: "Clearing" },
+      { day: "Fri", high: 3, low: -5, condition: "Mostly Clear" }
+    ],
+    alerts: [
+      "Blizzard warning — visibility near zero Tuesday",
+      "Extreme windchill advisory — hypothermia risk critical"
+    ],
+    aiSummary: "Do not attempt approach Monday or Tuesday. Severe blizzard with near-zero visibility and extreme windchill. Conditions stabilise Thursday. First viable summit window opens Friday morning — brief but significant."
   }
 ];
 
