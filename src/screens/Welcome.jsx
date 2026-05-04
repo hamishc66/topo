@@ -42,7 +42,7 @@ function TopoBackground() {
   )
 }
 
-export default function Welcome({ onGetStarted, onLogin, onContinue, hasExistingSession }) {
+export default function Welcome({ onGetStarted, onLogin, onContinue, hasExistingSession, userName }) {
   const getStartedClass = hasExistingSession
     ? 'w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97] border border-slate-700 text-white'
     : 'w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97]'
@@ -89,7 +89,7 @@ export default function Welcome({ onGetStarted, onLogin, onContinue, hasExisting
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.5 }} className="pb-12 space-y-3">
           {hasExistingSession && (
             <button onClick={onContinue} className="w-full py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-[0.97]" style={{backgroundColor: 'var(--accent)', color: '#000'}}>
-              Continue
+              Continue as {userName || 'you'}
               <ArrowRight className="w-5 h-5" />
             </button>
           )}

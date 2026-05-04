@@ -77,6 +77,7 @@ function App() {
               onLogin={() => { setAuthMode('login'); setScreen('auth') }}
               hasExistingSession={!!(user && customization)}
               onContinue={() => setScreen('app')}
+              userName={user?.name}
             />
           </motion.div>
         )}
